@@ -1,0 +1,18 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="onetomany.Department" table="DeptInfo">
+<id name="deptcode" column="DepartmentCode"/>
+<property name="deptname" column="DepartmentName"/>
+<property name="city" column="city"/>
+<set name="emplist" cascade="all" inverse="true" fetch="select">
+<key>
+<column name="DepartmentCode"/>
+</key>
+<one-to-many class="onetomany.Employee" />
+</set>
+</class>
+
+</hibernate-mapping>
